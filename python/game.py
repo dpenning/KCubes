@@ -5,7 +5,7 @@ colors = ["\033[0;37m","\033[0;31m","\033[0;34m","\033[0;32m","\033[0;33m"]
 
 size = 5
 players = 2
-player_type_list = ["Easy","Easy","Easy","Easy"]
+player_type_list = ["Medium","Easy","Easy","Easy"]
 move_time = .5
 
 if '-size' in sys.argv:
@@ -135,17 +135,22 @@ def check_if_player_left(player_number):
 #AI functions
 def ai_handout_function(t,val):
 	bc = copy.deepcopy(board)
+	if t == 'Medium':
+		return medium_bot(val,bc)
 	if t == 'Easy':
-		return easy_bot(t,val,bc)
+		return easy_bot(val,bc)
 	if t == 'Random':
-		return random_bot(t,val,bc)
+		return random_bot(val,bc)
 	else:
-		return easy_bot(t,val,bc)
+		return easy_bot(val,bc)
 
-def random_bot(t,val,board_copy):
-	return ai_build.random_bot(t,val,board_copy)
-def easy_bot(t,val,board_copy):
-	return ai_build.easy_bot(t,val,board_copy)
+def random_bot(val,board_copy):
+	return ai_build.random_bot(val,board_copy)
+def easy_bot(val,board_copy):
+	return ai_build.easy_bot(val,board_copy)
+def medium_bot(val,board_copy):
+	return ai_build.easy_bot(val,board_copy)
+
 #winnning screen
 def winner(num):
 	os.system('cls' if os.name=='nt' else 'clear')

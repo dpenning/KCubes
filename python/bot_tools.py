@@ -88,3 +88,16 @@ def print_board(board):
 def check_move_points(player,x,y,board):
 	b = simulate_turn(player,x,y,copy.deepcopy(board))
 	return check_points(player,b)
+def check_owned_positions(players,x,y,board):
+	b = simulate_turn(player,x,y,copy.deepcopy(board))
+	return check_positions(players,x,y,board)
+def get_board_status_after_move_1_lookahead(players,x,y,board):
+	b = simulate_turn(player,x,y,copy.deepcopy(board))
+	return check_points(player,b),check_positions(players,x,y,board)
+def find_all_possible_moves(val,board):
+	list_of_possible_spaces = []
+	for a in range(len(board)):
+		for b in range(len(board)):
+			if board[a][b][1] in [0,val]:
+				list_of_possible_spaces.append([b,a])
+	return list_of_possible_spaces
