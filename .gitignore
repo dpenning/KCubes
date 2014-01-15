@@ -1,5 +1,5 @@
 *.py[cod]
-python/log*
+python/log/
 
 # C extensions
 *.so
