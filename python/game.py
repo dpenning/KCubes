@@ -4,8 +4,8 @@ end_color = "\033[0m"
 colors = ["\033[0;37m","\033[0;31m","\033[0;34m","\033[0;32m","\033[0;33m"]
 
 size = 5
-players = 2
-player_type_list = ["Medium","Easy","Easy","Easy"]
+players = 4
+player_type_list = ["Human","Medium","Easy","Easy"]
 move_time = .5
 
 if '-size' in sys.argv:
